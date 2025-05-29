@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+}
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-grayish-blue);
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: -20px;
+  border-radius: 8px 0 0 8px;
+}
+.card {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  max-width: 730px;
+  width: 100%;
+  box-shadow: 5px 10px 30px hsl(210deg 31.45% 86.43%);
+  margin-inline: 15px;
+  border-radius: 8px;
+}
+.card .text {
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 0 8px 8px 0;
+}
+.card .text > p {
+  line-height: 1.5;
+}
+.card .text p.large {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--very-dark-grayish-blue);
+}
+.card .text p.medium {
+  color: var(--desaturated-dark-blue);
+  font-size: 13px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.card .text .data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.card .text .data .author {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.card .text .data .author {
+  font-size: 13px;
+}
+.card .text .data .author img {
+  width: 35px;
+  border-radius: 50%;
+}
+.card .text .data .author .author-data p.author {
+  font-weight: 700;
+  color: var(--very-dark-grayish-blue);
+  margin-bottom: 5px;
+}
+.card .text .data .author .author-data p.date {
+  color: var(--grayish-blue);
+}
+.card .text .data .icon {
+  background-color: var(--light-grayish-blue);
+  border-radius: 50%;
+  width: 30px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card .text .data .icons {
+  position: absolute;
+  background-color: var(--very-dark-grayish-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  top: -75px;
+  right: -110px;
+  border-radius: 8px;
+  padding: 17px 40px;
+  box-shadow: 0 5px 10px hsl(210deg 31.45% 86.43%);
+  transition: 0.2s;
+}
+
+.card .text .data .icons::before {
+  content: "";
+  border: 10px solid;
+  border-color: var(--very-dark-grayish-blue) transparent transparent
+    transparent;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card .text .data .icons p {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: white;
+  font-weight: 300;
+  font-size: 13px;
+}
+.none {
+  opacity: 0;
+}
+@media (max-width: 991px) {
+  .card .text .data .icons {
+    display: initial;
+    padding: 10px;
+    top: 53px;
+    right: -28px;
+  }
+  .card .text .data .icons a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .card .text .data .icons a:not(:last-child),
+  .card .text .data .icons p {
+    margin-bottom: 10px;
+  }
+  .card .text .data .icons::before {
+    border-color: transparent transparent var(--very-dark-grayish-blue)
+      transparent;
+    top: -20px;
+    bottom: initial;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .card .image img {
+    object-position: initial;
+    border-radius: 8px 8px 0 0;
+  }
+  .card .text {
+    border-radius: 0 0 8px 8px;
+  }
+}
+@media (max-width: 585px) {
+  .card {
+    position: relative;
+  }
+  .card .text .data .icons {
+    top: 87%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    justify-content: start;
+    padding-left: 40px;
+    border-radius: 0 0 8px 8px;
+    gap: 8%;
+    height: 13%;
+  }
+  .card .text .data .icons a:not(:last-child),
+  .card .text .data .icons p {
+    margin-bottom: 0;
+  }
+  .card .text .data .icons::before {
+    display: none;
+  }
+  .card .text .data .icon {
+    position: relative;
+    z-index: 1;
+  }
+  .card .text {
+    padding: 30px 20px 20px;
+  }
+  .card .text .data {
+    position: static;
+  }
+  .card .text .data .icons a {
+    margin: initial;
+  }
+}
